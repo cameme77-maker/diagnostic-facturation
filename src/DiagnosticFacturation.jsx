@@ -64,7 +64,7 @@ function recommander(reponses) {
   if (statut === "auto" && (volume === "faible" || outil === "rien") && besoin !== "temps") {
     return {
       nom: "Abby",
-      lien: "#lien-affilie-abby",
+      lien: "https://c3po.link/Qw6rSqepj2",
       raison:
         "En tant qu'auto-entrepreneur avec un faible volume de factures, vous avez surtout besoin d'un outil simple et rapide à mettre en place. Abby est pensé pour les micro-entrepreneurs : prise en main immédiate, sans complexité inutile.",
     };
