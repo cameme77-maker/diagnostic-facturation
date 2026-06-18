@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://facture-electronique-diag.com/sitemap.xml
