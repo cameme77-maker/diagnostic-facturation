@@ -133,6 +133,14 @@ export default function DiagnosticFacturation() {
           Répondez à 5 questions simples pour savoir ce qui change pour vous,
           à partir de quelle date, et quel outil correspond à votre situation.
         </p>
+        <p className="diag-intro">
+          À partir du 1er septembre 2026, la réforme de la facturation électronique
+          (e-invoicing) impose à toutes les entreprises françaises assujetties à la TVA
+          — y compris les auto-entrepreneurs, TPE et PME — de recevoir leurs factures
+          via une plateforme agréée par la DGFiP. Ce diagnostic gratuit identifie vos
+          obligations exactes et la plateforme la mieux adaptée à votre activité.
+        </p>
+        <p className="diag-updated">Mis à jour le 18 juin 2026</p>
       </header>
 
       <main className="diag-card">
@@ -171,12 +179,48 @@ export default function DiagnosticFacturation() {
         )}
       </main>
 
+      <FAQ />
+
       <footer className="diag-footer">
         Basé sur le calendrier officiel de la réforme de facturation électronique
         (DGFiP). Ce diagnostic donne une orientation générale et ne remplace pas
         l'avis de votre expert-comptable.
       </footer>
     </div>
+  );
+}
+
+// ---------- FAQ (texte identique au schema FAQPage dans index.html) ----------
+function FAQ() {
+  const items = [
+    {
+      q: "Qui est concerné par la facturation électronique en 2026 ?",
+      a: "Toutes les entreprises françaises assujetties à la TVA sont concernées, y compris les auto-entrepreneurs et micro-entreprises en franchise de TVA. À partir du 1er septembre 2026, toutes devront être en capacité de recevoir des factures électroniques. L'émission devient obligatoire progressivement selon la taille de l'entreprise.",
+    },
+    {
+      q: "Un auto-entrepreneur doit-il émettre des factures électroniques en 2026 ?",
+      a: "Non, pas dès 2026. Les auto-entrepreneurs et micro-entreprises doivent être capables de recevoir des factures électroniques dès le 1er septembre 2026, mais l'obligation d'émettre leurs propres factures au format électronique ne s'applique qu'à partir du 1er septembre 2027.",
+    },
+    {
+      q: "Que se passe-t-il si je ne suis pas en conformité ?",
+      a: "Une facture non conforme au format électronique peut entraîner une amende fiscale de 15€ par facture, plafonnée à 15 000€ par an. Mieux vaut choisir et activer une plateforme agréée avant l'échéance plutôt que de découvrir le problème au dernier moment.",
+    },
+    {
+      q: "Le diagnostic et les plateformes recommandées sont-ils vraiment gratuits ?",
+      a: "Oui, le diagnostic est entièrement gratuit et ne demande aucune carte bancaire. Les plateformes recommandées (Abby, Indy) proposent toutes une offre gratuite suffisante pour la conformité d'un auto-entrepreneur ou d'une petite structure.",
+    },
+  ];
+
+  return (
+    <section className="diag-faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" className="diag-faq-title">Questions fréquentes</h2>
+      {items.map((item, i) => (
+        <details key={i} className="diag-faq-item">
+          <summary className="diag-faq-q">{item.q}</summary>
+          <p className="diag-faq-a">{item.a}</p>
+        </details>
+      ))}
+    </section>
   );
 }
 
@@ -298,6 +342,21 @@ const STYLES = `
   line-height: 1.6;
   color: var(--diag-ink-soft);
   margin: 0;
+}
+
+.diag-intro {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--diag-ink-soft);
+  margin: 16px 0 0;
+  text-align: left;
+}
+
+.diag-updated {
+  font-size: 12px;
+  color: var(--diag-ink-soft);
+  opacity: 0.7;
+  margin: 12px 0 0;
 }
 
 .diag-card {
@@ -555,6 +614,47 @@ const STYLES = `
   color: var(--diag-ink-soft);
   margin-top: 28px;
   opacity: 0.8;
+}
+
+.diag-faq {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 28px;
+}
+
+.diag-faq-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--diag-ink);
+}
+
+.diag-faq-item {
+  border: 1px solid var(--diag-line);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  background: #FFFFFF;
+}
+
+.diag-faq-q {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--diag-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.diag-faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.diag-faq-a {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--diag-ink-soft);
+  margin: 10px 0 0;
 }
 
 @media (max-width: 480px) {
