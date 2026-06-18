@@ -72,7 +72,7 @@ function recommander(reponses) {
 
   return {
     nom: "Indy",
-    lien: "#lien-affilie-indy",
+    lien: "https://www.indy.fr/?ae=1656",
     raison:
       "Pour gagner du temps sur l'ensemble de votre gestion (devis, factures, relances) sans vous noyer dans des fonctionnalités superflues, Indy offre un bon équilibre entre simplicité et complétude.",
   };
